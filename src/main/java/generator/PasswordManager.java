@@ -13,9 +13,11 @@ public class PasswordManager {
     public static void main(String[] args) throws IOException {
 
         while (true){
+            System.out.println(
+                    "Czy chcesz zapisać nowe hasło do swojej bazy? Wciśnij 1 \n" +
+                    "Jeżeli chcesz opuścić manager wciśnij 0 \n" +
+                    "Jeżeli chcesz wygenerować nowe hasło wciśnij 2");
 
-            System.out.println("Czy chcesz zapisać nowe hasło do swojej bazy? Wciśnij 1 \n" +
-                    "Jeżeli chcesz opuścić manager wciśnij 0");
             String userInput = scanner.nextLine();
             if(userInput.equals("1")) {
                 System.out.println("Proszę podać nazwę serwisu : ");
@@ -28,20 +30,27 @@ public class PasswordManager {
                 passwordList.add(new PasswordEntry(webSiteName, login, password));
             }
 
+            if (userInput.equals("2")) {
+                Generator generator = new Generator();
+                System.out.println(generator.generatePassword(10));
+            }
+
             if (userInput.equals("0")){
                 break;
             }
         }
-
         FileManager.dumpPasswordEntriesToFile(passwordList);
     }
-
-    private static void savePassword(){
-        passwordList.add(new PasswordEntry(
-                "www.facebook.pl ",
-                "MichałSkoczek69 ",
-                "KubaJestNalepszy "));
-    }
-
-
 }
+
+
+
+
+/*
+ private static void savePassword(){
+ passwordList.add(new PasswordEntry(
+ "www.facebook.pl ",
+ "MichałSkoczek69 ",
+ "KubaJestNalepszy "));
+ }
+ */

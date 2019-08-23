@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 class Generator {
-    public static void main(String[] args) {
+    public String generatePassword(int length) {
 
         final String lexicon = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345674890!@#$%^&*()";
 
@@ -14,7 +14,6 @@ class Generator {
 
         StringBuilder builder = new StringBuilder();
         while (builder.toString().length() == 0) {
-            int length = rand.nextInt(5) + 5;
             for (int i = 0; i < length; i++) {
                 builder.append(lexicon.charAt(rand.nextInt(lexicon.length())));
             }
@@ -22,6 +21,6 @@ class Generator {
                 builder = new StringBuilder();
             }
         }
-        System.out.println(builder.toString());
+        return builder.toString();
     }
 }
