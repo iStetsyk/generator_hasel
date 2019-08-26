@@ -20,7 +20,7 @@ public class DescriptionFileReader extends Reader {
         String line = null;
 
         while ((line = this.bufferedReader.readLine()) != null) {
-            // TODO: 23.08.2019 "Tutaj trzeba będzie odszyfrować liniejkę przed dodaniem do linijek
+// TODO: 26.08.2019 odszyfrowanie
             lines.add(line);
         }
         decrypted = String.join("\n", lines) + "\n";
