@@ -27,7 +27,8 @@ public class FileManager {
             String privateData = "secretKey";
             textEncryptor.setPasswordCharArray(row.toCharArray());
             fileWriter.write(row + "\n");
-            String myEncryptedText = textEncryptor.encrypt(privateData);
+            String encryptedData = textEncryptor.encrypt(privateData);
+            fileWriter.write(encryptedData);
         }
         fileWriter.close();
     }
